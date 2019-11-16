@@ -1,0 +1,4 @@
+:set -fwarn-unused-binds -fwarn-unused-imports
+:set -fobject-code
+:set -isrc
+:load Main

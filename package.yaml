@@ -1,0 +1,62 @@
+name:                blog
+version:             0.1.0.0
+github:              "rogryza/rogryza.me"
+license:             MIT
+author:              "Rodrigo Gryzinski"
+maintainer:          "rogryza@gmail.com"
+copyright:           "2019 Rodrigo Gryzinski"
+
+extra-source-files:
+- README.md
+
+description:         Please see the README on GitHub at <https://github.com/githubuser/blog#readme>
+
+dependencies:
+- aeson
+- base >= 4.7 && < 5
+- bytestring
+- blaze-html
+- blaze-markup
+- clay
+- pandoc
+- containers
+- feed
+- shake
+- slick
+- text
+- text-icu
+- time
+- unordered-containers
+
+default-extensions:
+- DeriveAnyClass
+- DeriveGeneric
+- DeriveFoldable
+- DeriveFunctor
+- GeneralizedNewtypeDeriving
+- OverloadedStrings
+
+executables:
+  blog:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+
+tests:
+  blog-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -Wall
+    - -Wcompat
+    - -Wincomplete-record-updates
+    - -Wincomplete-uni-patterns
+    - -Wredundant-constraints
+    dependencies:
+    - blog

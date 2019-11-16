@@ -1,0 +1,10 @@
+baseURL: "https://rogryza.me"
+title: "rogryza.me"
+lang: "en-us"
+author: "Rodrigo Gryzinski"
+description: "Meu blog"
+social:
+- name: github
+  url: https://github.com/RoGryza
+- name: twitter
+  url: https://twitter.com/RodrigoGryzins1
