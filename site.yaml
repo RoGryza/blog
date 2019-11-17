@@ -2,7 +2,7 @@ baseURL: "https://rogryza.me"
 title: "rogryza.me"
 lang: "en-us"
 author: "Rodrigo Gryzinski"
-description: "Meu blog"
+description: "Rodrigo Gryzinski's personal blog"
 social:
 - name: github
   url: https://github.com/RoGryza
