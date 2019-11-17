@@ -166,6 +166,6 @@ main = shakeArgsForward shakeOptions $ do
   writeFeed outputFolder site posts
  where
   pageSize = 10
-  outputFolder = "build"
+  outputFolder = "docs"
   postPageUrl 0 = "/index"
   postPageUrl n = T.pack $ "/page/" ++ show (n + 1)
