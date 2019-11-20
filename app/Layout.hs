@@ -60,12 +60,10 @@ header Site { siteTitle, siteSocial } = H.header $ do
         , ("About Me", "/about")
         ]
       ]
-    H.ul ! A.class_ "main-nav-icons" $ do
+    H.ul ! A.class_ "main-nav-social" $ do
       sequenceA_
-        [ H.li $ H.a ! A.href (toValue url) $ icon name | SocialLink name url <- siteSocial ]
-      H.li $ H.a ! A.rel "alternate" ! A.type_ "application/atom+xml" ! A.href "/atom.xml" $ icon
-        ("rss" :: AttributeValue)
-  where icon name = H.img ! A.src (toValue $ "/icons/" <> name <> ".svg") ! A.alt (toValue name)
+        [ H.li $ H.a ! A.href (toValue url) $ toMarkup name | SocialLink name url <- siteSocial ]
+      H.li $ H.a ! A.rel "alternate" ! A.type_ "application/atom+xml" ! A.href "/atom.xml" $ "rss"
 
 footer :: Site -> H.Html
 footer Site { siteAuthor } = H.footer $ do
@@ -113,7 +111,12 @@ index Site { siteTitle } Paginated { paginatedIndex, paginatedTotalPages, pagina
         Just Paginated { paginatedUrl = prevUrl } ->
           H.a ! A.href (toValue prevUrl) $ "Earlier posts"
         Nothing -> return ()
-      toMarkup $ "Page " ++ show (paginatedIndex + 1) ++ " of " ++ show paginatedTotalPages
+      when (paginatedTotalPages > 1)
+        $ toMarkup
+        $ "Page "
+        ++ show (paginatedIndex + 1)
+        ++ " of "
+        ++ show paginatedTotalPages
       case paginatedNext of
         Just Paginated { paginatedUrl = nextUrl } -> H.a ! A.href (toValue nextUrl) $ "Older posts"
         Nothing -> return ()
