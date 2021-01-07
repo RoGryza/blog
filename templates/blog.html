@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+<main>
+  <h1>{{ section.title }}</h1>
+  <ul>
+    {% for page in section.pages %}
+    <h2><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
+    postMeta
+    <div class="summary">
+      SUMMARY AND HASMORE
+    </div>
+    {% endfor %}
+  </ul>
+</main>
