@@ -2,7 +2,6 @@ base_url = "https://blog.rogryza.me"
 
 theme = "lightspeed"
 
-compile_sass = true
 highlight_code = true
 highlight_theme = "gruvbox-light"
 
@@ -12,42 +11,17 @@ description = "Rodrigo Gryzinki's programming blog"
 generate_feed = true
 
 default_language = "en"
-languages = [
-  { code = "pt", feed = true },
-]
 
 taxonomies = [
   { name = "tags" },
-  { name = "tags", lang = "pt" },
 ]
-
-[translations.en]
-dateFormat = "%B %d, %Y"
-
-[translations.pt]
-description = "Blog de programação do Rodrigo Gryzinski"
-"About me" = "Sobre Mim"
-"View source" = "Ver código fonte"
-dateFormat = "%d de %B, %Y"
-January = "Janeiro"
-February = "Fevereiro"
-March = "Março"
-April = "Abril"
-May = "Maio"
-June = "Junho"
-July = "Julho"
-August = "Agosto"
-September = "Setembro"
-October = "Outubro"
-November = "Novembro"
-December = "Dezembro"
 
 [extra]
 author = "Rodrigo Gryzinski"
 nav_links = [
-  { url = "$BASE_URL/now/", name = "/now" },
-  { url = "$BASE_URL/about/", name = "About me" },
+  { url = "$BASE_URL/pages/now/", name = "/now" },
+  { url = "$BASE_URL/pages/about/", name = "About me" },
   { url = "$BASE_URL/tags/", name = "Tags" },
-  { url = "$BASE_URL/atom.xml", name = "RSS" ,},
+  { url = "$BASE_URL/atom.xml", name = "RSS" },
   { url = "https://github.com/RoGryza/blog", name="View source" },
 ]
