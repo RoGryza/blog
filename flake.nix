@@ -8,7 +8,7 @@
     pkgs = import nixpkgs { system = "x86_64-linux"; };
   in {
     devShell.x86_64-linux = pkgs.mkShell {
-      buildInputs = with pkgs; [ zola ];
+      buildInputs = with pkgs; [ nodejs wrangler zola ];
     };
   };
 }
