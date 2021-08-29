@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
     <title>
       {%- block title -%}{%- if page_title -%}
         {{ page_title }}
@@ -11,6 +12,17 @@
   </head>
   <body>
     <div class="container">
+      <header>
+        <p><b>{{ site_title }}</b></p>
+        {% for language in languages %}
+        {% if lang is defined and lang.pk == language.pk %}
+          {{ language.short }}
+        {% else %}
+          <a href="{% url "index", language %}">{{ language.short }}</a>
+        {% endif %}
+        {% endfor %}
+      </header>
+
       <main>
         {% block body %}{% endblock %}
       </main>

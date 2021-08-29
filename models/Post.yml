@@ -1,5 +1,7 @@
 title: String
+canonical-slug: String
 slug: String
 summary: String
 published: DateTime
+lang: Lang -> posts
 content: Content

@@ -1,5 +1,14 @@
 path:
-  template: /posts/{{ post.slug }}
+  template: /posts/{{ post.lang.pk }}/{{ post.slug }}
   for-each:
     post: session.query(Post).filter(Post.published != None).all()
+context:
+  dynamic:
+    lang: post.lang
+    translations: |
+      (session.query(Post)
+        .filter(Post.canonical_slug == post.canonical_slug)
+        .join(Lang)
+        .order_by(Lang.rank)
+        .all())
 template: post

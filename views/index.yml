@@ -1,5 +1,18 @@
-path: /
+path:
+  template: /{{ lang.pk }}
+  for-each:
+    lang: session.query(Lang).all()
 template: index
 context:
   dynamic:
-    posts: session.query(Post).filter(Post.published != None).order_by(Post.published.desc()).all()
+    page_title: lang.tr_latest_posts
+    translations: |
+      (session.query(Lang)
+        .order_by(Lang.rank)
+        .all())
+    posts: |
+      (session.query(Post)
+        .filter(Post.lang == lang)
+        .filter(Post.published != None)
+        .order_by(Post.published.desc())
+        .all())

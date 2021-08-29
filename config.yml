@@ -6,6 +6,8 @@ context:
     author: Rodrigo Gryzinski
     repository: https://github.com/RoGryza/blog
     contact: contact@rogryza.me
+  dynamic:
+    languages: session.query(Lang).order_by(Lang.rank).all()
 templates:
   providers:
     - jinja2
