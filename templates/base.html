@@ -1,6 +1,25 @@
-{% extends "lightspeed/templates/base.html" %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      {%- block title -%}{%- if page_title -%}
+        {{ page_title }}
+      {%- else -%}
+        {{ site_title }}
+      {%- endif -%}{%- endblock -%}
+    </title>
+  </head>
+  <body>
+    <div class="container">
+      <main>
+        {% block body %}{% endblock %}
+      </main>
 
-{% block extra_taglines %}
-  <br/
-  {% include "license.html" %}
-{% endblock extra_taglines %}
+      <footer>
+        {%- block taglines -%}
+          {%- include "license.html" -%}
+        {%- endblock taglines -%}
+      </footer>
+    </div>
+  </body>
+</html>

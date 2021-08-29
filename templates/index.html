@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block body %}
+  <h1>{{ site_title }}</h1>
+  <p>Latest Posts</p>
+  <ul>
+    {% for post in posts %}
+      <li><a href="{% url "post", post %}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

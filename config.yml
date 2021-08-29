@@ -1,2 +1,11 @@
-project-name: Your project name
+project-name: rogryza.me
 base-path: /
+context:
+  static:
+    site-title: rogryza.me
+    author: Rodrigo Gryzinski
+    repository: https://github.com/RoGryza/blog
+    contact: contact@rogryza.me
+templates:
+  providers:
+    - jinja2
