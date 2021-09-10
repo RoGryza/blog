@@ -4,8 +4,14 @@ context:
   static:
     site-title: rogryza.me
     author: Rodrigo Gryzinski
+    base-url: https://blog.rogryza.me
     repository: https://github.com/RoGryza/blog
-    contact: contact@rogryza.me
+    site-description:
+      en: Rodrigo Gryzinski's programming blog
+      pt: blog de programação do Rodrigo Gryzinski
+    view-source:
+      en: View source
+      pt: Ver código fonte
   dynamic:
     languages: session.query(Lang).order_by(Lang.rank).all()
 templates:

@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
+{% block extra_head %}
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content="{{ post.published|date("%Y-%m-%d") }}" />
+{% endblock %}
+
 {% block body %}
   <h1>{{ post.title }}</h1>
   <div>

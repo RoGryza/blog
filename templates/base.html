@@ -1,37 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ page_lang.short }}">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>
       {%- block title -%}{%- if page_title -%}
-        {{ page_title }}
+        {{ site_title }} &middot; {{ page_title }}
       {%- else -%}
         {{ site_title }}
       {%- endif -%}{%- endblock -%}
     </title>
+    <meta name="description" content="{{ site_description[page_lang.pk] }}" />
+
+    <link rel="shortcut icon" href="{% asset "favicon.ico" %} | safe" />
+    <link rel="alternate" type="application/atom+xml" title="RSS" href="{% url "feed", page_lang %}">
+
+    <link rel="stylesheet" href="{% asset "style.css" %}" />
+
+    <meta property="og:site_name" content="{{ site_title }}" />
+    <meta property="og:author" content="{{ author }}" />
+    <meta property="og:title" content="{{ site_title }}" />
+    <meta property="og:url" content="{{ base_url }}" />
+
+    {% block extra_head %}{% endblock %}
   </head>
   <body>
-    <div class="container">
-      <header>
-        <p><b>{{ site_title }}</b></p>
-        {% for language in languages %}
-        {% if lang is defined and lang.pk == language.pk %}
-          {{ language.short }}
-        {% else %}
-          <a href="{% url "index", language %}">{{ language.short }}</a>
-        {% endif %}
-        {% endfor %}
+    <main id="main" role="main">
+      <header roler="banner">
+        <h3 style="margin-top:0;">
+          <a href="{% url "index", page_lang %}" title="Home">{{ site_title }}</a>
+          <br /><small>{{ site_description[page_lang.pk] }}</small>
+        </h3>
+        <nav style="margin-bottom:1rem;" role="navigation">
+          <div>
+            {% for language in languages %}
+              {% if page_lang is defined and page_lang.pk == language.pk %}
+                {{ language.short }}
+              {% else %}
+                <a href="{% url "index", language %}">{{ language.short }}</a>
+              {% endif %}
+            <span>&middot;</span>
+            {% endfor %}
+
+            {% for lang_page in page_lang.pages | sort(attribute='rank') %}
+              {% if page is defined and page.pk == lang_page.pk %}
+                {{ page.title }}
+              {% else %}
+                <a href="{% url "page", lang_page %}">{{ lang_page.title }}</a>
+              {% endif %}
+              <span>&middot;</span>
+            {% endfor %}
+
+            <a href="{% url "feed", page_lang %}">RSS</a>
+            <span>&middot;</span>
+            <a href="{{ repository }}">{{ view_source[page_lang.pk] }}</a>
+          </div>
+        </nav>
       </header>
+      <hr />
 
-      <main>
-        {% block body %}{% endblock %}
-      </main>
+      {% block content %}{% endblock content %}
 
-      <footer>
-        {%- block taglines -%}
-          {%- include "license.html" -%}
-        {%- endblock taglines -%}
+      <footer role="contentinfo">
+        <hr/>
+        Built with <a href="https://pypi.org/project/statik/">statik</a> using an adapated
+        <a href="https://github.com/carpetscheme/lightspeed">lightspeed</a> theme.
+        {%- include "license.html" -%}
       </footer>
-    </div>
+    </main>
   </body>
 </html>

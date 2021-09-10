@@ -1,0 +1,15 @@
+path:
+  template: /{{ page.lang.pk }}/{{ page.pk }}
+  for-each:
+    page: session.query(Page).all()
+context:
+  dynamic:
+    page_title: page.title
+    page_lang: page.lang
+    translations: |
+      (session.query(Page)
+        .filter(Page.canonical_slug == page.canonical_slug)
+        .join(Lang)
+        .order_by(Lang.rank)
+        .all())
+template: page

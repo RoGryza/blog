@@ -1,11 +1,11 @@
 path:
-  template: /{{ page_lang.pk }}
+  template: /{{ page_lang.pk }}/feed.xml
   for-each:
     page_lang: session.query(Lang).all()
-template: index
+# TODO feed.xml doesn't work
+template: feed
 context:
   dynamic:
-    page_title: page_lang.tr_latest_posts
     translations: |
       (session.query(Lang)
         .order_by(Lang.rank)

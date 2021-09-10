@@ -4,7 +4,8 @@ path:
     post: session.query(Post).filter(Post.published != None).all()
 context:
   dynamic:
-    lang: post.lang
+    page_title: post.title
+    page_lang: post.lang
     translations: |
       (session.query(Post)
         .filter(Post.canonical_slug == post.canonical_slug)

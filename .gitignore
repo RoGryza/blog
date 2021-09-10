@@ -2,3 +2,4 @@
 public
 dist
 wrangler.toml
+.sass-cache/
