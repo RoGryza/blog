@@ -4,9 +4,11 @@ path:
     page_lang: session.query(Lang).all()
 template: index
 context:
+  static:
+    page_default_translation: en
   dynamic:
     page_title: page_lang.tr_latest_posts
-    translations: |
+    page_translations: |
       (session.query(Lang)
         .order_by(Lang.rank)
         .all())

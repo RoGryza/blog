@@ -3,3 +3,4 @@ public
 dist
 wrangler.toml
 .sass-cache/
+templatetags/__pycache__

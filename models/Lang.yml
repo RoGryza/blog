@@ -1,3 +1,5 @@
 short: String
 rank: Integer
 tr-latest-posts: String
+date-format: String
+months: String

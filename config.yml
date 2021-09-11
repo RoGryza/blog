@@ -1,14 +1,13 @@
 project-name: rogryza.me
-base-path: /
+base-path: / # https://blog.rogryza.me
 context:
   static:
     site-title: rogryza.me
     author: Rodrigo Gryzinski
-    base-url: https://blog.rogryza.me
     repository: https://github.com/RoGryza/blog
     site-description:
-      en: Rodrigo Gryzinski's programming blog
-      pt: blog de programação do Rodrigo Gryzinski
+      en: programming ramblings
+      pt: divagações sobre programação
     view-source:
       en: View source
       pt: Ver código fonte

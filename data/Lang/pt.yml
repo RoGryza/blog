@@ -1,3 +1,5 @@
 short: pt-br
 rank: 1
 tr-latest-posts: Últimos posts
+date-format: "%d de %b %Y"
+months: jan.,fev.,mar.,abr.,maio,jun.,jul.,ago.,set.,out.,nov.,dez.
