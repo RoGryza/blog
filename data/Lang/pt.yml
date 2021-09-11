@@ -2,5 +2,7 @@ short: pt-br
 rank: 1
 tr-latest-posts: Últimos posts
 tr-posted-on: Postado em
+tr-built-with: Feito com %s usando um tema %s adaptado.
+tr-license: Até onde possível sob a lei, %s abriu mão dos direitos autorais e direitos relacionados ou anexos para %s
 date-format: "%d de %b %Y"
 months: jan.,fev.,mar.,abr.,maio,jun.,jul.,ago.,set.,out.,nov.,dez.

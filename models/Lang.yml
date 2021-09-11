@@ -2,5 +2,7 @@ short: String
 rank: Integer
 tr-latest-posts: String
 tr-posted-on: String
+tr-built-with: String
+tr-license: String
 date-format: String
 months: String

@@ -2,5 +2,7 @@ short: en-us
 rank: 0
 tr-latest-posts: Latest posts
 tr-posted-on: Posted on
+tr-built-with: Built with %s using an adapted %s theme.
+tr-license: To the extent possible under law, %s has waived all copyright and related or neighboring rights to %s
 date-format: "%b %d %Y"
 months: Jan.,Feb.,Mar.,Apr.,May,June,July,Aug.,Sep.,Oct.,Nov.,Dec.

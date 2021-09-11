@@ -61,8 +61,11 @@
 
       <footer role="contentinfo">
         <hr/>
-        Built with <a href="https://pypi.org/project/statik/">statik</a> using an adapated
-        <a href="https://github.com/carpetscheme/lightspeed">lightspeed</a> theme.
+        {% set statik_link %}<a href="https://pypi.org/project/statik/">statik</a>{% endset %}
+        {% set lightspeed_link %}
+          <a href="https://github.com/carpetscheme/lightspeed">lightspeed</a>
+        {% endset %}
+        {{ page_lang.tr_built_with | format(statik_link, lightspeed_link) | safe }}
         {%- include "license.html" -%}
       </footer>
     </main>
