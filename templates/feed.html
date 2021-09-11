@@ -1,3 +1,17 @@
-<xml>
-  TODO
-</xml>
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>{{ site_title }}</title>
+    <link>{{ base_path }}</link>
+    <description>{{ site_description[feed_lang.pk] }}</description>
+    <language>{{ feed_lang.short }}</language>
+    <pubDate>{{ posts[-1].published | date("%a, %d %b %Y %H:%M:%SUTC") }}</pubDate>
+    <docs>https://www.rssboard.org/rss-specification</docs>
+    {% for post in posts -%}
+      <title>{{ post.title }}</title>
+      <link>{% url "post", post %}</link>
+      <description>{{ post.description }}</description>
+      <pubDate>{{ post.published | date("%a, %d %b %Y %H:%M:%SUTC") }}</pubDate>
+    {%- endfor %}
+  </channel>
+</rss>

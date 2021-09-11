@@ -1,18 +1,14 @@
 path:
-  template: /{{ page_lang.pk }}/feed.xml
+  template: /{{ feed_lang.pk }}/feed.xml
   for-each:
-    page_lang: session.query(Lang).all()
+    feed_lang: session.query(Lang).all()
 # TODO feed.xml doesn't work
 template: feed
 context:
   dynamic:
-    translations: |
-      (session.query(Lang)
-        .order_by(Lang.rank)
-        .all())
     posts: |
       (session.query(Post)
-        .filter(Post.lang == page_lang)
+        .filter(Post.lang == feed_lang)
         .filter(Post.published != None)
         .order_by(Post.published.desc())
         .all())

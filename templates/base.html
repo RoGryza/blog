@@ -9,7 +9,7 @@
           content="{% block description %}{{ site_description[page_lang.pk] }}{% endblock %}" />
 
     <link rel="shortcut icon" href="{% asset "favicon.ico" %}" />
-    <link rel="alternate" type="application/atom+xml" title="RSS" href="{% url "feed", page_lang %}">
+    <link rel="alternate" type="application/rss+xml" title="feed" href="{% url "feed", page_lang %}">
 
     <link rel="stylesheet" href="{% asset "style.css" %}" />
 
