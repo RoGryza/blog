@@ -14,7 +14,7 @@
 {% block ogtitle %}{{ page.title }} &middot; {{ site_title }}{% endblock ogtitle %}
 {% block ogurl %}{% url "page", page %}{% endblock ogurl %}
 
-{% block source %}{{ "%s/tree/%s/data/Page/%s.md" | format(reository, git_ref, page.pk) }}{% endblock %}
+{% block source %}{{ "%s/tree/%s/data/Page/%s.md" | format(repository, git_ref, page.pk) }}{% endblock %}
 
 {% block content %}
 <article>

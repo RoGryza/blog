@@ -19,6 +19,8 @@
 {% block ogurl %}{% url "post", page %}{% endblock ogurl %}
 {% block ogdesc %}{{ page.description }}{% endblock ogdesc %}
 
+{% block source %}{{ "%s/tree/%s/data/Post/%s.md" | format(repository, git_ref, page.pk) }}{% endblock %}
+
 {% block content %}
 <article>
   <h1>{{ page.title }}</h1>
