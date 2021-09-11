@@ -4,9 +4,8 @@ path:
     page: session.query(Page).all()
 context:
   dynamic:
-    page_title: page.title
     page_lang: page.lang
-    translations: |
+    page_translations: |
       (session.query(Page)
         .filter(Page.canonical_slug == page.canonical_slug)
         .join(Lang)

@@ -7,7 +7,6 @@ context:
   static:
     page_default_translation: en
   dynamic:
-    page_title: page_lang.tr_latest_posts
     page_translations: |
       (session.query(Lang)
         .order_by(Lang.rank)

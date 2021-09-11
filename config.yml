@@ -6,8 +6,8 @@ context:
     author: Rodrigo Gryzinski
     repository: https://github.com/RoGryza/blog
     site-description:
-      en: programming ramblings
-      pt: divagações sobre programação
+      en: Rodrigo Gryzinski's personal programming blog
+      pt: Blog pessoal de programação do Rodrigo Gryzinski
     view-source:
       en: View source
       pt: Ver código fonte

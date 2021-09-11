@@ -1,17 +1,36 @@
 {% extends "base.html" %}
 
-{% block body %}
+{% block extra_head %}
+  {% for tr in page_translations %}
+    <link rel="alternate" hreflang="{{ tr.lang.short }}" href="{% url "page", tr %}" />
+    {% if tr.pk == page.canonical_slug -%}
+      <link rel="alternate" hreflang="x-default" href="{% url "page", tr %}" />
+    {%- endif %}
+  {% endfor %}
+{% endblock extra_head %}
+
+{% block title %}{{ page.title }} &middot; {{ site_title }}{% endblock %}
+{% block description %}{{ page.description }}{% endblock %}
+
+{% block ogtitle %}{{ page.title }} &middot; {{ site_title }}{% endblock ogtitle %}
+{% block ogurl %}{% url "page", page %}{% endblock ogurl%}
+
+{% block content %}
+<article>
   <h1>{{ page.title }}</h1>
+
   <div>
-    {% for tr in translations %}
+    {% for tr in page_translations %}
     {% if page.lang.pk == tr.lang.pk %}
       {{ tr.lang.short }}
     {% else %}
       <a href="{% url "page", tr %}">{{ tr.lang.short }}</a>
     {% endif %}
+
+    {% if not loop.last %}&middot;{% endif %}
     {% endfor %}
   </div>
-  <div class="content">
-    {{ page.content|safe }}
-  </div>
-{% endblock %}
+
+  {{ page.content|safe }}
+</article>
+{% endblock content %}
