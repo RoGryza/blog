@@ -5,6 +5,7 @@ context:
     site-title: rogryza.me
     author: Rodrigo Gryzinski
     repository: https://github.com/RoGryza/blog
+    git_ref: master
     site-description:
       en: Rodrigo Gryzinski's personal programming blog
       pt: Blog pessoal de programação do Rodrigo Gryzinski

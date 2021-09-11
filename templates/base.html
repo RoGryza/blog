@@ -51,7 +51,7 @@
 
             <a href="{% url "feed", page_lang %}">RSS</a>
             <span>&middot;</span>
-            <a href="{{ repository }}">{{ view_source[page_lang.pk] }}</a>
+            <a href="{% block source %}{{ repository }}{% endblock %}">{{ view_source[page_lang.pk] }}</a>
           </div>
         </nav>
       </header>
