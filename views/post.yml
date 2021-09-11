@@ -1,14 +1,13 @@
 path:
-  template: /posts/{{ post.lang.pk }}/{{ post.slug }}
+  template: /posts/{{ page.lang.pk }}/{{ page.slug }}
   for-each:
-    post: session.query(Post).filter(Post.published != None).all()
+    page: session.query(Post).filter(Post.published != None).all()
 context:
   dynamic:
-    page_title: post.title
-    page_lang: post.lang
-    translations: |
+    page_lang: page.lang
+    page_translations: |
       (session.query(Post)
-        .filter(Post.canonical_slug == post.canonical_slug)
+        .filter(Post.canonical_slug == page.canonical_slug)
         .join(Lang)
         .order_by(Lang.rank)
         .all())

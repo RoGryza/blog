@@ -1,5 +1,6 @@
 ---
 title: Hello, World
+description: First post, hello world!
 canonical-slug: hello-world
 slug: hello-world
 summary: hrkjdkkdj
