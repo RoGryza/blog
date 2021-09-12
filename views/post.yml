@@ -3,6 +3,9 @@ path:
   for-each:
     page: session.query(Post).filter(Post.published != None).all()
 context:
+  static:
+    page_template: post
+    page_model: Post
   dynamic:
     page_lang: page.lang
     page_translations: |

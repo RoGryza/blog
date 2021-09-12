@@ -2,9 +2,9 @@
 
 {% block extra_head %}
   {% for tr in page_translations %}
-    <link rel="alternate" hreflang="{{ tr.lang.short }}" href="{% url "page", tr %}" />
-    {% if tr.pk == page.canonical_slug -%}
-      <link rel="alternate" hreflang="x-default" href="{% url "page", tr %}" />
+    <link rel="alternate" hreflang="{{ tr.lang.short }}" href="{% url page_template, tr %}" />
+    {% if tr.pk == page.canonical_slug or tr.slug == page.canonical_slug -%}
+      <link rel="alternate" hreflang="x-default" href="{% url page_template, tr %}" />
     {%- endif %}
   {% endfor %}
 {% endblock extra_head %}
@@ -12,20 +12,22 @@
 {% block title %}{{ page.title }} &middot; {{ site_title }}{% endblock %}
 
 {% block ogtitle %}{{ page.title }} &middot; {{ site_title }}{% endblock ogtitle %}
-{% block ogurl %}{% url "page", page %}{% endblock ogurl %}
+{% block ogurl %}{% url page_template, page %}{% endblock ogurl %}
 
-{% block source %}{{ "%s/tree/%s/data/Page/%s.md" | format(repository, git_ref, page.pk) }}{% endblock %}
+{% block source %}{{ "%s/tree/%s/data/%s/%s.md" | format(repository, git_ref, page_model, page.pk) }}{% endblock %}
 
 {% block content %}
 <article>
   <h1>{{ page.title }}</h1>
+
+  {% block after_headline %}{% endblock %}
 
   <div>
     {% for tr in page_translations %}
     {% if page.lang.pk == tr.lang.pk %}
       {{ tr.lang.short }}
     {% else %}
-      <a href="{% url "page", tr %}">{{ tr.lang.short }}</a>
+      <a href="{% url page_template, tr %}">{{ tr.lang.short }}</a>
     {% endif %}
 
     {% if not loop.last %}&middot;{% endif %}

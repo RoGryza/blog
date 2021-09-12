@@ -3,6 +3,9 @@ path:
   for-each:
     page: session.query(Page).all()
 context:
+  static:
+    page_template: page
+    page_model: Page
   dynamic:
     page_lang: page.lang
     page_translations: |
