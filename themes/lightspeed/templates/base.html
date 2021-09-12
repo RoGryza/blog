@@ -20,6 +20,13 @@
           content="{% block ogdesc %}{{ site_description[page_lang.pk] }}{% endblock %}" />
     <meta property="og:url" content="{% block ogurl %}{{ base_path }}{% endblock %}" />
 
+    <meta property="og:locale" content="{{ page_lang.og }}" />
+    {% for tr in page_translations -%}
+      {% if tr.lang != page_lang -%}
+        <meta property="og:locale:alternate" content="{{ tr.lang.og }}" />
+      {%- endif %}
+    {%- endfor %}
+
     {% block extra_head %}{% endblock %}
   </head>
   <body>

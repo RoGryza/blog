@@ -8,9 +8,10 @@ context:
     page_default_translation: en
   dynamic:
     page_translations: |
-      (session.query(Lang)
-        .order_by(Lang.rank)
-        .all())
+      [{ 'lang': l } for l in
+        session.query(Lang)
+          .order_by(Lang.rank)
+          .all()]
     posts: |
       (session.query(Post)
         .filter(Post.lang == page_lang)

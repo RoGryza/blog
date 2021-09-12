@@ -1,4 +1,5 @@
 short: String
+og: String
 rank: Integer
 tr-latest-posts: String
 tr-posted-on: String

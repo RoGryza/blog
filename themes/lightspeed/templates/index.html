@@ -2,8 +2,8 @@
 
 {% block extra_head %}
   {% for tr in page_translations %}
-    <link rel="alternate" hreflang="{{ tr.short }}" href="{% url "index", tr %}" />
-    {% if tr.pk == page_default_translation -%}
+    <link rel="alternate" hreflang="{{ tr.lang.short }}" href="{% url "index", tr %}" />
+    {% if tr.lang.pk == page_default_translation -%}
       <link rel="alternate" hreflang="x-default" href="{% url "index", tr %}" />
     {%- endif %}
   {% endfor %}
