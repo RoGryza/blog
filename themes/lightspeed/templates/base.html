@@ -13,26 +13,28 @@
 
     <link rel="stylesheet" href="{% asset "style.css" %}" />
 
-    <meta property="og:site_name" content="{{ site_title }}" />
-    <meta property="og:author" content="{{ author }}" />
-    <meta property="og:title" content="{% block ogtitle %}{{ site_title }}{% endblock %}" />
-    <meta property="og:description"
-          content="{% block ogdesc %}{{ site_description[page_lang.pk] }}{% endblock %}" />
-    <meta property="og:url" content="{% block ogurl %}{{ base_path }}{% endblock %}" />
+    {% block seo %}
+      <meta property="og:site_name" content="{{ site_title }}" />
+      <meta property="og:author" content="{{ author }}" />
+      <meta property="og:title" content="{% block ogtitle %}{{ site_title }}{% endblock %}" />
+      <meta property="og:description"
+            content="{% block ogdesc %}{{ site_description[page_lang.pk] }}{% endblock %}" />
+      <meta property="og:url" content="{% block ogurl %}{{ base_path }}{% endblock %}" />
 
-    <meta property="og:locale" content="{{ page_lang.og }}" />
-    {% for tr in page_translations -%}
-      {% if tr.lang != page_lang -%}
-        <meta property="og:locale:alternate" content="{{ tr.lang.og }}" />
-      {%- endif %}
-    {%- endfor %}
+      <meta property="og:locale" content="{{ page_lang.og }}" />
+      {% for tr in page_translations -%}
+        {% if tr.lang != page_lang -%}
+          <meta property="og:locale:alternate" content="{{ tr.lang.og }}" />
+        {%- endif %}
+      {%- endfor %}
 
-    {% for tr in page_translations %}
-      <link rel="alternate" hreflang="{{ tr.lang.short }}" href="{% url page_template, tr %}" />
-      {% if tr.pk == page_canonical_slug or tr.slug == page_canonical_slug -%}
-        <link rel="alternate" hreflang="x-default" href="{% url page_template, tr %}" />
-      {%- endif %}
-    {% endfor %}
+      {% for tr in page_translations %}
+        <link rel="alternate" hreflang="{{ tr.lang.short }}" href="{% url page_template, tr %}" />
+        {% if tr.pk == page_canonical_slug or tr.slug == page_canonical_slug -%}
+          <link rel="alternate" hreflang="x-default" href="{% url page_template, tr %}" />
+        {%- endif %}
+      {% endfor %}
+    {% endblock %}
 
     {% block extra_head %}{% endblock %}
   </head>

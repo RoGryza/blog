@@ -1,0 +1,8 @@
+path:
+  template: /{{ error.lang.pk }}/{{ error.error }}.html
+  for-each:
+    error: session.query(Error).all()
+template: error
+context:
+  dynamic:
+    page_lang: error.lang
