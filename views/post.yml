@@ -8,6 +8,7 @@ context:
     page_model: Post
   dynamic:
     page_lang: page.lang
+    page_canonical_slug: page.canonical_slug
     page_translations: |
       (session.query(Post)
         .filter(Post.canonical_slug == page.canonical_slug)

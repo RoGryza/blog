@@ -1,14 +1,5 @@
 {% extends "base.html" %}
 
-{% block extra_head %}
-  {% for tr in page_translations %}
-    <link rel="alternate" hreflang="{{ tr.lang.short }}" href="{% url page_template, tr %}" />
-    {% if tr.pk == page.canonical_slug or tr.slug == page.canonical_slug -%}
-      <link rel="alternate" hreflang="x-default" href="{% url page_template, tr %}" />
-    {%- endif %}
-  {% endfor %}
-{% endblock extra_head %}
-
 {% block title %}{{ page.title }} &middot; {{ site_title }}{% endblock %}
 
 {% block ogtitle %}{{ page.title }} &middot; {{ site_title }}{% endblock ogtitle %}

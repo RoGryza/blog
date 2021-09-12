@@ -5,10 +5,11 @@ path:
 template: index
 context:
   static:
-    page_default_translation: en
+    page_template: index
+    page_canonical_slug: en
   dynamic:
     page_translations: |
-      [{ 'lang': l } for l in
+      [{ 'pk': l.pk, 'lang': l } for l in
         session.query(Lang)
           .order_by(Lang.rank)
           .all()]

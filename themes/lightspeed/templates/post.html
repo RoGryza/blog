@@ -1,8 +1,6 @@
 {% extends "page.html" %}
 
 {% block extra_head %}
-  {{ super() }}
-
   <meta property="og:type" content="article" />
   <meta property="og:article:published_time" content="{{ page.published|date("%Y-%m-%d") }}" />
 {% endblock extra_head %}
