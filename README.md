@@ -16,8 +16,7 @@ content file under [`data/Post`]. By default, other code and content is under th
   </a>
   <br />
   To the extent possible under law,
-  <a rel="dct:publisher"
-     href="TODO">
+  <a rel="dct:publisher" href="https:://github.com/RoGryza">
     <span property="dct:title">Rodrigo Gryzinski</span></a>
   has waived all copyright and related or neighboring rights to
   <span property="dct:title">rogryza.me blog</span>.
@@ -27,3 +26,4 @@ content file under [`data/Post`]. By default, other code and content is under th
 [statik]: https://pypi.org/project/statik/
 [theme]: themes/lightspeed
 [MIT license]: themes/lightspeed/LICENSE.md
+[`data/Post`]: data/Post
