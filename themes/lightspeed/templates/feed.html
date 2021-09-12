@@ -8,10 +8,13 @@
     <pubDate>{{ posts[-1].published | date("%a, %d %b %Y %H:%M:%SUTC") }}</pubDate>
     <docs>https://www.rssboard.org/rss-specification</docs>
     {% for post in posts -%}
+    <item>
       <title>{{ post.title }}</title>
       <link>{% url "post", post %}</link>
       <description>{{ post.description }}</description>
       <pubDate>{{ post.published | date("%a, %d %b %Y %H:%M:%SUTC") }}</pubDate>
+      <guid>{% url "post", post %}</linl>
+    </item>
     {%- endfor %}
   </channel>
 </rss>
