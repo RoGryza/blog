@@ -1,5 +1,6 @@
 project-name: rogryza.me
 base-path: / # https://blog.rogryza.me
+theme: lightspeed
 context:
   static:
     site-title: rogryza.me

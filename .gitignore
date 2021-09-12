@@ -4,3 +4,4 @@ dist
 wrangler.toml
 .sass-cache/
 templatetags/__pycache__
+*.css
