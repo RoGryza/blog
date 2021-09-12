@@ -13,7 +13,7 @@
       <link>{% url "post", post %}</link>
       <description>{{ post.description }}</description>
       <pubDate>{{ post.published | date("%a, %d %b %Y %H:%M:%SUTC") }}</pubDate>
-      <guid>{% url "post", post %}</linl>
+      <guid>{% url "post", post %}</guid>
     </item>
     {%- endfor %}
   </channel>
