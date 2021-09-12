@@ -1,0 +1,9 @@
+name = "blog"
+type = "webpack"
+workers_dev = false
+route = "blog.rogryza.me/*"
+account_id = ""
+zone_id = ""
+
+[site]
+bucket = "./public"
