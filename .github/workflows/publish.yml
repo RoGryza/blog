@@ -13,9 +13,6 @@ jobs:
       - uses: cachix/install-nix-action@v16
         with:
           nix_path: nixpkgs=channel:nixos-21.11
-      - uses: abatilo/actions-poetry@v2.1.0
-        with:
-          poetry-version: 1.1.8
       - name: Pre-publish
         run: scripts/pre-publish.sh
         env:
