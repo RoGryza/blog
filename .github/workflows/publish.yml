@@ -10,19 +10,12 @@ jobs:
       DART_VERSION: 1.39.2
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/install-nix-action@v16
         with:
-          python-version: 3.7
+          nix_path: nixpkgs=channel:nixos-21.11
       - uses: abatilo/actions-poetry@v2.1.0
         with:
           poetry-version: 1.1.8
-      - name: Set up python dependencies
-        run: poetry install
-      - name: Fetch dart-sass and add it to PATH
-        run: |
-          wget "https://github.com/sass/dart-sass/releases/download/${DART_VERSION}/dart-sass-${DART_VERSION}-linux-x64.tar.gz" -O dart.tar.gz
-          tar xzf dart.tar.gz dart-sass/sass
-          echo "$(realpath dart-sass)" >> $GITHUB_PATH
       - name: Pre-publish
         run: scripts/pre-publish.sh
         env:
