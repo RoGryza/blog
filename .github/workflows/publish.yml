@@ -14,12 +14,12 @@ jobs:
         with:
           nix_path: nixpkgs=channel:nixos-21.11
       - name: Pre-publish
-        run: scripts/pre-publish.sh
+        run: nix develop --command scripts/pre-publish.sh
         env:
           WRANGLER_ACCOUNT_ID: ${{ secrets.WRANGLER_ACCOUNT_ID }}
           WRANGLER_ZONE_ID: ${{ secrets.WRANGLER_ZONE_ID }}
       - name: Build
-        run: scripts/build.sh
+        run: nix develop --command scripts/build.sh
       - uses: cloudflare/wrangler-action@1.3.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
